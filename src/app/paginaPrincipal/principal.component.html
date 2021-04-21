@@ -1,0 +1,21 @@
+<div class="col-6">
+    <div class="container">
+      <div class="col align-self-start">
+        <form #formLogin = "ngForm" (ngSubmit)="goTo(formLogin)">
+          <div class= "row">
+            <label>
+              Correo Electronico:
+            </label>
+            <input type="email" name="Correo" class="email_From" id="InputEmail1" aria-describedby="emailHelp" ngModel>
+          </div>
+          <div class="row">
+            <label>Contraseña:</label>
+            <input type="password" name="contrasena" class="password_Email" id="InputPassword1" ngModel>
+          </div>
+          <div class="row" class = "button">
+            <button type="submit" class="btn btn-primary" >Entrar</button>
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>

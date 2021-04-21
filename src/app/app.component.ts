@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { JsonService } from './json.service';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +8,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'SmartHomeTEC-Webapp';
-
-  ngOnInit(): void {
+  res1: Array<any> = [];
+  constructor( public json: JsonService) {
+    this.json.getJson().subscribe((res: any) => {
+      console.log(res);
+      this.res1 = res;
+    });
   }
 }
+

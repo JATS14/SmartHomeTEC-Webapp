@@ -1,0 +1,33 @@
+.container{
+    top: 50;
+    left: 50px;
+    width: 520px;
+    background: #7fb8ee;
+    border: rgb(0, 0, 0);
+    border-radius: 30px;
+    border-style: solid;
+    padding: 20px;
+    margin-top:180px;
+    display: flex;
+    align-items: stretch;
+  }
+  
+  .email_From{
+    width: 600px;
+    padding: 5px;
+    margin: 5px;
+  }
+  .password_Email{
+    width: 600px;
+    padding: 5px;
+    margin: 5px;
+  }
+  .button{
+    padding: 10px;
+    text-align: center;
+    color: white;
+  }
+  
+  .col-6{
+    margin: 0 auto;
+  }  
