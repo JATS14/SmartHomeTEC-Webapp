@@ -22,10 +22,15 @@ import { NgForm } from '@angular/forms';
           console.log(res);
           this.res1 = res;
         });
+        this.router.navigate([ '' ])
       }
       else{
         alert('Es necesario llenar todos los espacios');
       }
+    }
+
+    salir(): void{
+      this.router.navigate([ ''])
     }
 
   }

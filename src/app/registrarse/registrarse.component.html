@@ -2,42 +2,44 @@
     <div class="container">
       <div class="col align-self-start">
         <form #formregister = "ngForm" (ngSubmit)="goToRegister(formregister)">
-            <div class="row">
-                <label>Registrarse</label>
-            </div>
+
           <div class="row">
             <label>Nombre:</label>
-            <input type="text" name="nombre" class="normal" id="InputNombre" ngModel>
+            <input type="text" name="nombre" class="normal" id="InputNombre" required="" ngModel>
           </div>
           <div class="row">
             <label>Apellido:</label>
-            <input type="text" name="apellido" class="normal" id="InputApellido" ngModel>
+            <input type="text" name="apellido" class="normal" id="InputApellido" required="" ngModel>
           </div>
           <div class="row">
             <label>Correo:</label>
-            <input type="email" name="correo" class="normal" id="InputCorreo" ngModel>
+            <input type="email" name="correo" class="normal" id="InputCorreo" required=""ngModel>
           </div>
           <div class="row">
             <label>Contraseña:</label>
-            <input type="password" name="contrasena" class="normal" id="InputPassword" ngModel>
+            <input type="password" name="contrasena" class="normal" id="InputPassword" required="" ngModel>
           </div>
           <div class="row">
             <label>Pais:</label>
-            <input type="text" name="pais" class="normal" id="InputPais" ngModel>
+            <input type="text" name="pais" class="normal" id="InputPais" required="" ngModel>
           </div>
           <div class="row">
             <label>Region:</label>
-            <input type="text" name="region" class="normal" id="InputRegion" ngModel>
+            <input type="text" name="region" class="normal" id="InputRegion" required="" ngModel>
           </div>
           <div class="row">
             <label>Direccion:</label>
-            <input type="text" name="direccion" class="normal" id="InputDireccion" ngModel>
+            <input type="text" name="direccion" class="normal" id="InputDireccion" required="" ngModel>
           </div>
 
 
           <div class="row" class = "button">
             <button type="submit" class="btn btn-primary" >Registrarse</button>
             </div>
+
+            <div class="row" class = "button">
+                <button mat-stroked-button type="button" class="btn btn-danger" (click) = "salir()" >Salir</button>
+                </div>
         </form>
       </div>
     </div>
