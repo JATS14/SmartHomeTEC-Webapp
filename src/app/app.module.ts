@@ -7,12 +7,17 @@ import { PrincipalComponent } from './paginaPrincipal/principal.component';
 import {AppRoutingModule, routes} from './app-routing.module';
 import {HttpClientModule} from '@angular/common/http';
 import { RegistrarseComponent } from './registrarse/registrarse.component';
+import { PrincipalVistaAdmin} from './VistaAdministrador/principalVistaAdmin.component';
+import { PrincipalVistaUsua } from './VistaUsuario/principalVistaUsua.component.';
 
 @NgModule({
   declarations: [
     AppComponent,
     PrincipalComponent,
     RegistrarseComponent,
+    PrincipalVistaAdmin,
+    PrincipalVistaUsua
+
 
   ],
   imports: [

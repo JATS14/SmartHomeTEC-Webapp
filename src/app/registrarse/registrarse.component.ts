@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import {Router} from '@angular/router';
 import { JsonService } from '../json.service';
 import { NgForm } from '@angular/forms';
@@ -30,7 +30,7 @@ import { NgForm } from '@angular/forms';
     }
 
     salir(): void{
-      this.router.navigate([ ''])
+      this.router.navigate([ '' ])
     }
 
   }
