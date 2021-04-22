@@ -12,12 +12,7 @@
     align-items: stretch;
   }
   
-  .email_From{
-    width: 600px;
-    padding: 5px;
-    margin: 5px;
-  }
-  .password_Email{
+  .normal{
     width: 600px;
     padding: 5px;
     margin: 5px;
@@ -27,12 +22,6 @@
     text-align: center;
     color: white;
   }
-  .buttonRegister{
-    padding: 10px;
-    text-align: center;
-    color: white;
-  }
-  
   .col-6{
     margin: 0 auto;
   }  

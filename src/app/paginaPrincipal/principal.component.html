@@ -6,7 +6,8 @@
             <label>
               Correo Electronico:
             </label>
-            <input type="email" name="Correo" class="email_From" id="InputEmail1" aria-describedby="emailHelp" ngModel>
+            <input type="email" name="Correo" class="email_From" id="InputEmail1" aria-describedby="emailHelp" ngModel 
+                    required #correo="ngModel">
           </div>
           <div class="row">
             <label>Contraseña:</label>
@@ -15,6 +16,9 @@
           <div class="row" class = "button">
             <button type="submit" class="btn btn-primary" >Entrar</button>
             </div>
+            <div class="row" class = "buttonRegister">
+              <button mat-stroked-button type="button" class="btn btn-info" (click) = "Registrar()" >Registrarse</button>
+              </div>
         </form>
       </div>
     </div>

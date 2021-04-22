@@ -18,7 +18,7 @@ export class PrincipalComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  goTo(formLogin: NgForm): void{
+  goTo(formLogin: NgForm) {
     if (formLogin.valid) {
       this.json.postJson(formLogin.value).subscribe((res: any) => {
         console.log(res);
@@ -28,5 +28,8 @@ export class PrincipalComponent implements OnInit {
     else{
       alert('Error en el ingreso de datos');
     }
+  }
+  Registrar(): void{
+    this.router.navigate([ '/registrarse'])
   }
 }
