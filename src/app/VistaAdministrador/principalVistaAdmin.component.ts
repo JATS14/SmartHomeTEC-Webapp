@@ -17,17 +17,4 @@ import { NgForm } from '@angular/forms';
       ) {
       }
       
-      GestionarTipoDispositivos(): void{
-        alert('GestionarTipoDispositivos');
-      }
-
-      GestionarDistribuidores():void{
-        alert('GestionarDistribuidores');
-      }
-
-      GestionarTiendaenLinea(): void{
-        alert('GestionarTiendaenLinea');
-      }
-
-      
   }

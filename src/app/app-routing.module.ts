@@ -6,14 +6,20 @@ import { PrincipalVistaAdmin } from './VistaAdministrador/principalVistaAdmin.co
 import { PrincipalVistaUsua } from './VistaUsuario/principalVistaUsua.component.';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { GestionarDispositivos } from './VistaAdministrador/GestionarDispositivos/gestionarDisp.component';
+import { GestionarTipo } from './VistaAdministrador/GestionarTipoDispositivo/gestionarTipo.component';
+import { GestionarDistribuidores } from './VistaAdministrador/GestionarDistribuidores/gestionarDistribu.component';
+import { GestionarTienda } from './VistaAdministrador/GestionarTiendaEnLinea/gestionarTienda.component';
 
 
 export let routes: Routes = [
   {path: '', component: PrincipalComponent},
   {path: 'registrarse', component: RegistrarseComponent},
+
   {path: 'principalVistaAdmin', component: PrincipalVistaAdmin},
   {path:'GestionarDispositivos', component: GestionarDispositivos},
-
+  {path:'GestionarTipo', component: GestionarTipo},
+  {path:'GestionarDistribuidores', component: GestionarDistribuidores},
+  {path:'GestionarTienda', component: GestionarTienda},
 
 
   {path: 'principalVistaUsua', component: PrincipalVistaUsua}

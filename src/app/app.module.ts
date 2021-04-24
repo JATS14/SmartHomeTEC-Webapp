@@ -11,6 +11,9 @@ import { PrincipalVistaAdmin} from './VistaAdministrador/principalVistaAdmin.com
 import { PrincipalVistaUsua } from './VistaUsuario/principalVistaUsua.component.';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { GestionarDispositivos } from './VistaAdministrador/GestionarDispositivos/gestionarDisp.component';
+import { GestionarTipo } from './VistaAdministrador/GestionarTipoDispositivo/gestionarTipo.component';
+import { GestionarDistribuidores } from './VistaAdministrador/GestionarDistribuidores/gestionarDistribu.component';
+import { GestionarTienda } from './VistaAdministrador/GestionarTiendaEnLinea/gestionarTienda.component';
 
 
 @NgModule({
@@ -20,7 +23,10 @@ import { GestionarDispositivos } from './VistaAdministrador/GestionarDispositivo
     RegistrarseComponent,
     PrincipalVistaAdmin,
     PrincipalVistaUsua,
-    GestionarDispositivos
+    GestionarDispositivos,
+    GestionarTipo,
+    GestionarDistribuidores,
+    GestionarTienda
 
 
   ],
