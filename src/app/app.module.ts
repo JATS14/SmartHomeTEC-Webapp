@@ -14,6 +14,8 @@ import { GestionarDispositivos } from './VistaAdministrador/GestionarDispositivo
 import { GestionarTipo } from './VistaAdministrador/GestionarTipoDispositivo/gestionarTipo.component';
 import { GestionarDistribuidores } from './VistaAdministrador/GestionarDistribuidores/gestionarDistribu.component';
 import { GestionarTienda } from './VistaAdministrador/GestionarTiendaEnLinea/gestionarTienda.component';
+import { Tienda } from './VistaUsuario/TiendaEnLinea/tienda.component';
+import { Reportes } from './VistaUsuario/Reportes/reportes.component';
 
 
 @NgModule({
@@ -26,8 +28,9 @@ import { GestionarTienda } from './VistaAdministrador/GestionarTiendaEnLinea/ges
     GestionarDispositivos,
     GestionarTipo,
     GestionarDistribuidores,
-    GestionarTienda
-
+    GestionarTienda,
+    Tienda,
+    Reportes
 
   ],
   imports: [

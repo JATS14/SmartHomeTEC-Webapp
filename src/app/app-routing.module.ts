@@ -9,6 +9,8 @@ import { GestionarDispositivos } from './VistaAdministrador/GestionarDispositivo
 import { GestionarTipo } from './VistaAdministrador/GestionarTipoDispositivo/gestionarTipo.component';
 import { GestionarDistribuidores } from './VistaAdministrador/GestionarDistribuidores/gestionarDistribu.component';
 import { GestionarTienda } from './VistaAdministrador/GestionarTiendaEnLinea/gestionarTienda.component';
+import { Tienda } from './VistaUsuario/TiendaEnLinea/tienda.component';
+import { Reportes } from './VistaUsuario/Reportes/reportes.component';
 
 
 export let routes: Routes = [
@@ -22,7 +24,9 @@ export let routes: Routes = [
   {path:'GestionarTienda', component: GestionarTienda},
 
 
-  {path: 'principalVistaUsua', component: PrincipalVistaUsua}
+  {path: 'principalVistaUsua', component: PrincipalVistaUsua},
+  {path:'Tienda', component: Tienda},
+  {path:'Reportes', component: Reportes},
 
   
 ];
