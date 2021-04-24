@@ -16,7 +16,18 @@ import { NgForm } from '@angular/forms';
         private router: Router, public json: JsonService
       ) {
       }
+      
+      GestionarTipoDispositivos(): void{
+        alert('GestionarTipoDispositivos');
+      }
 
+      GestionarDistribuidores():void{
+        alert('GestionarDistribuidores');
+      }
+
+      GestionarTiendaenLinea(): void{
+        alert('GestionarTiendaenLinea');
+      }
 
       
   }

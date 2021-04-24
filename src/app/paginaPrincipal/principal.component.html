@@ -3,14 +3,14 @@
       <div class="col align-self-start">
         <form #formLogin = "ngForm" (ngSubmit)="goTo(formLogin)">
           <div class= "row">
-            <label>
-              Correo Electronico:
+            <label >
+              <strong>Correo Electronico: </strong>
             </label>
             <input type="email" name="Correo" class="email_From" id="InputEmail1" aria-describedby="emailHelp" ngModel 
                    required="" #correo="ngModel">
           </div>
           <div class="row">
-            <label>Contraseña:</label>
+            <label><strong>Contraseña:</strong></label>
             <input type="password" name="contrasena" class="password_Email" id="InputPassword1" required="" ngModel>
           </div>
           <div class="row" class = "button">

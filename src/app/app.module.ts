@@ -10,6 +10,7 @@ import { RegistrarseComponent } from './registrarse/registrarse.component';
 import { PrincipalVistaAdmin} from './VistaAdministrador/principalVistaAdmin.component';
 import { PrincipalVistaUsua } from './VistaUsuario/principalVistaUsua.component.';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { GestionarDispositivos } from './VistaAdministrador/GestionarDispositivos/gestionarDisp.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
     PrincipalComponent,
     RegistrarseComponent,
     PrincipalVistaAdmin,
-    PrincipalVistaUsua
+    PrincipalVistaUsua,
+    GestionarDispositivos
 
 
   ],
