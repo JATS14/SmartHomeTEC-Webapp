@@ -9,6 +9,8 @@ import {HttpClientModule} from '@angular/common/http';
 import { RegistrarseComponent } from './registrarse/registrarse.component';
 import { PrincipalVistaAdmin} from './VistaAdministrador/principalVistaAdmin.component';
 import { PrincipalVistaUsua } from './VistaUsuario/principalVistaUsua.component.';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import { PrincipalVistaUsua } from './VistaUsuario/principalVistaUsua.component.
     FormsModule,
     RouterModule,
     HttpClientModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    MDBBootstrapModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

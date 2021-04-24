@@ -4,6 +4,8 @@ import { PrincipalComponent } from './paginaPrincipal/principal.component';
 import { RegistrarseComponent } from './registrarse/registrarse.component';
 import { PrincipalVistaAdmin } from './VistaAdministrador/principalVistaAdmin.component';
 import { PrincipalVistaUsua } from './VistaUsuario/principalVistaUsua.component.';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+
 
 export let routes: Routes = [
   {path: '', component: PrincipalComponent},
@@ -15,7 +17,10 @@ export let routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes),
+    MDBBootstrapModule.forRoot()
+  ],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
