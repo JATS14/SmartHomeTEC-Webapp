@@ -1,3 +1,4 @@
+
 <header class="h-100">
     <mdb-navbar SideClass="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar intro-fixed-nav" [containerInside]="false">
         <mdb-navbar-brand>
@@ -22,9 +23,14 @@
                 </li>
                 
             </ul>
+            <button type="button" mdbBtn color="default" data-toggle="modal" data-target="#basicExample" (click)="frame.show()" 
+              mdbWavesEffect>Agregar Dispositivos</button>
+            <button type="button" mdbBtn color="default" data-toggle="modal" data-target="#basicExample" mdbWavesEffect>Buscar Dispositivo</button>
         </links>
+        
     </mdb-navbar>
 </header>
+
 <div *ngFor="let item of res1; let i = index" >
     <div class="modal.show() container" tabindex="-1">
       <div class="modal-dialog">
@@ -47,3 +53,73 @@
       </div>
     </div>
   </div>
+
+  <div mdbModal #frame="mdbModal" class="modal fade left" id="frameModalTop" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="m1">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Agregar Dispositivos</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="frame.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+          <div class="modal-body mx-3">
+            <form #AgrgarDispositivo = "ngForm" (ngSubmit)="goTo(AgrgarDispositivo)">
+
+            <div class="md-form mb-5">
+              <mdb-icon fas icon="user" class="prefix white-text"></mdb-icon>
+              <input type="text" name="Nombre" id="InputNombre" class="form-control white-text"
+                  required="" ngModel mdbInput>
+              <label for="InputNombre" class="white-text">Nombre</label>
+            </div>
+
+            <div class="md-form mb-5">
+              <mdb-icon fas icon="dollar-sign" class="prefix white-text"></mdb-icon>
+              <input type="text" name="precio" id="InputPrecio" class="form-control white-text"
+                     mdbInput required="" ngModel>
+              <label for="InputPrecio" class="white-text">Precio</label>
+            </div>
+
+            <div class="md-form mb-5">
+              <mdb-icon fas icon="file" class="prefix white-text"></mdb-icon>
+              <input type="text" name="tipo" id="InputTipo" class="form-control white-text"
+                     mdbInput required="" ngModel>
+              <label for="InputTipo" class="white-text">Tipo</label>
+            </div>
+            
+            <div class="md-form mb-5">
+              <mdb-icon fas icon="barcode" class="prefix white-text"></mdb-icon>
+              <input type="text" name="numeroSerie" id="InputNumeroSerie" class="form-control white-text"
+                     mdbInput required="" ngModel>
+              <label for="InputNumeroSerie" class="white-text">Numero Serie</label>
+            </div>
+
+            <div class="md-form mb-5">
+              <mdb-icon fas icon="tags" class="prefix white-text"></mdb-icon>
+              <input type="text" name="marca" id="InputMarca" class="form-control white-text"
+                     mdbInput required="" ngModel>
+              <label for="InputMarca" class="white-text">Marca</label>
+            </div>
+
+            <div class="md-form mb-5">
+              <mdb-icon fas icon="plug" class="prefix white-text"></mdb-icon>
+              <input type="text" name="consumoElectrico" id="InputConsumoElectrico" class="form-control white-text"
+                     mdbInput required="" ngModel>
+              <label for="InputConsumoElectrico" class="white-text">Consumo Electrico</label>
+            </div>
+
+            <div class="row" class = "button">
+              <button type="submit" class="btn btn-primary" >Enviar</button>
+              </div>
+  
+            </form>
+          </div>
+        
+
+      </div>
+    </div>
+    </div>
+  </div>
+

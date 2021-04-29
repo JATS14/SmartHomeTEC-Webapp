@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {Router} from '@angular/router';
 import { JsonService } from '../../json.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
     selector: 'app-gestionarDisp',
@@ -13,6 +14,7 @@ import { JsonService } from '../../json.service';
     res2: Array<any> = [];
     objetoGet:any;
 
+    res3: Array<any> = [];
     
     constructor(
         private router: Router, public json: JsonService) {
@@ -34,4 +36,22 @@ import { JsonService } from '../../json.service';
       }
   });
   }
+
+  goTo(AgrgarDispositivo: NgForm) {
+    if (AgrgarDispositivo.valid) {
+      this.json.postJsonDispositivosAgregar(AgrgarDispositivo.value).subscribe((res: any) => {
+        console.log(res);
+        this.res3 = res;
+        
+
+        }
+      );
+      
+    }
+    else{
+      alert('Error en el ingreso de datos');
+    }
+  }
+
+
   }
