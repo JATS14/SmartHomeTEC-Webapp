@@ -9,9 +9,14 @@ import { JsonService } from '../../json.service';
   })
 
   export class GestionarDistribuidores{
+    res1: Array<any> = [];
     constructor(
         private router: Router, public json: JsonService
       ) {
+        this.json.getJsonDistribuidores().subscribe((res: any) => {
+          console.log(res);
+          this.res1 = res;
+        });
       }
 
 

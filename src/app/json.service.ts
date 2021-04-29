@@ -20,6 +20,9 @@ export class JsonService{
   /*Tipo*/
   url7 = 'https://localhost:5001/tipo';
 
+  /*distribuidores*/
+  url8 = 'https://localhost:5001/Distribuidores';
+
 
   /*header = {headers: {'Access-Control-Allow-Origin': 'http://localhost:4200/', 'Access-Control-Allow-Methods': 'POST', 'Access-Control-Allow-Headers': 'Content-Type, Authorization'}};*/
   httpOptions = {
@@ -60,5 +63,10 @@ export class JsonService{
   /*Tipo*/
   getJsonTipo(){
     return this.http.get(this.url7);
+  }
+
+  /*distribuidores*/
+  getJsonDistribuidores(){
+    return this.http.get(this.url8);
   }
 };
