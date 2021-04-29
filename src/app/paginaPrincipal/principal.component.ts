@@ -23,13 +23,13 @@ export class PrincipalComponent implements OnInit {
       this.json.postJson(formLogin.value).subscribe((res: any) => {
         console.log(res);
         this.res1 = res;
-        if (res.ingreso == "denegar"){
+        if (res.status == "denegar"){
           alert('El usuario no existe o la contraseña es incorrecta');
         }
-        if (res.ingreso  == "admin"){
+        if (res.status  == "admin"){
           this.router.navigate([ '/principalVistaAdmin' ])
         }
-        if (res.ingreso  == "usuario"){
+        if (res.status  == "usuario"){
           this.router.navigate([ '/principalVistaUsua' ])
         }
       });
