@@ -23,9 +23,10 @@
                 </li>
                 
             </ul>
-            <button type="button" mdbBtn color="default" data-toggle="modal" data-target="#basicExample" (click)="frame.show()" 
-              mdbWavesEffect>Agregar Dispositivos</button>
-            <button type="button" mdbBtn color="default" data-toggle="modal" data-target="#basicExample" mdbWavesEffect>Buscar Dispositivo</button>
+            <button type="button" mdbBtn color="default" data-toggle="modalAgregar" data-target="#agregarDispositivoModal" 
+            (click)="frame1.show()" mdbWavesEffect>Agregar Dispositivos</button>
+            <button type="button" mdbBtn color="default" data-toggle="modalBuscar" data-target="#buscarDipositivoModal"  
+            (click)="frame2.show()" mdbWavesEffect>Buscar Dispositivo</button>
         </links>
         
     </mdb-navbar>
@@ -39,7 +40,7 @@
             <h5 class="modal-title">{{item.nombre}}</h5>
           </div>
           <div class="modal-body">
-            <p>Tipo: {{item.tipo}}</p>
+            <p>Tipo: {{item.tipo.nombre}}</p>
             <p>Marca: {{item.marca}}</p>
             <p>Consumo Electrico: {{item.consumoElectrico}}</p>
             <p>#serie: {{item.numeroSerie}}</p>
@@ -54,14 +55,14 @@
     </div>
   </div>
 
-  <div mdbModal #frame="mdbModal" class="modal fade left" id="frameModalTop" tabindex="-1" role="dialog"
-     aria-labelledby="myModalLabel" aria-hidden="true">
+  <div mdbModal #frame1="mdbModal" class="modal fade top" id="agregarDispositivoModal" tabindex="-1" role="dialog"
+     aria-labelledby="agregarDispositivoLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="m1">
     <div class="modal-content">
       <div class="modal-header text-center">
         <h4 class="modal-title w-100 font-weight-bold">Agregar Dispositivos</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="frame.hide()">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="frame1.hide()">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -116,10 +117,69 @@
   
             </form>
           </div>
-        
-
       </div>
     </div>
     </div>
   </div>
+
+  <div mdbModal #frame2="mdbModal" class="modal fade top" id="buscarDipositivoModal" tabindex="-1" role="dialog"
+     aria-labelledby="buscarDipositivoLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="m1">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Buscar Dispositivos</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="frame2.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+          <div class="modal-body mx-3">
+            <form #BuscarDispositivo = "ngForm" (ngSubmit)="goToBuscar(BuscarDispositivo)">
+
+            <div class="md-form mb-5">
+              <mdb-icon fas icon="search" class="prefix white-text"></mdb-icon>
+              <input type="text" name="busquedaEnt" id="InputBusquedaEnt" class="form-control white-text"
+                  required="" ngModel mdbInput>
+              <label for="InputBusqueda" class="white-text">Buscar</label>
+            </div>
+          
+            <div class="row" class = "button">
+              <button type="submit" class="btn btn-primary" (click)="frame3.show()" >Buscar</button>
+              </div>
+  
+            </form>
+          </div>
+      </div>
+    </div>
+    </div>
+  </div>
+
+  <div mdbModal #frame3="mdbModal" class="modal fade top" id="DipositivoBuscadoModal" tabindex="-1" role="dialog"
+     aria-labelledby="DipositivoBuscadoLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="m1">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Dispositivos Encontrados</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="frame3.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div *ngFor="let item of res4; let i = index" >
+        <div class="container">
+          <div class="col align-self-start">
+                
+                <p> {{item.nombre}}</p>
+                <p>Tipo: {{item.tipo.nombre}}</p>
+                <p>Marca: {{item.marca}}</p>
+                <p>Consumo Electrico: {{item.consumoElectrico}}</p>
+                <p>#serie: {{item.numeroSerie}}</p>
+                <p>Precio: ₡{{item.precio}}</p>
+                <p> --------------------------</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    
 

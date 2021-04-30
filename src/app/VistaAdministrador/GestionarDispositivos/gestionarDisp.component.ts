@@ -16,6 +16,8 @@ import { NgForm } from '@angular/forms';
 
     res3: Array<any> = [];
     
+    res4: Array<any> = [];
+
     constructor(
         private router: Router, public json: JsonService) {
 
@@ -43,6 +45,24 @@ import { NgForm } from '@angular/forms';
         console.log(res);
         this.res3 = res;
         
+
+        }
+      );
+      
+    }
+    else{
+      alert('Error en el ingreso de datos');
+    }
+  }
+
+  goToBuscar(BuscarDispositivo: NgForm) {
+    if (BuscarDispositivo.valid) {
+      this.json.postJsonDispositivosBuscar(BuscarDispositivo.value).subscribe((res: any) => {
+        console.log(res);
+        this.res4 = res;
+        if (this.res4.length == 0){
+          alert('No se encontraron Dispositivos');
+        }
 
         }
       );
