@@ -26,17 +26,24 @@ import { NgForm } from '@angular/forms';
           this.res1 = res;
         });
       }
-  Editar_Dipositivo(): void{
-    alert('Se actualizaron los datos con éxito');
-  }
-  Eliminar_Dispositivo(): void{
-    this.json.postJsonDispositivosEliminar(this.objetoGet.nombre).subscribe((resX: any) => {
+  Editar_Dipositivo(object: any): void{
+    this.json.postJsonDispositivosEditar(object).subscribe((resX: any) => {
       console.log(resX);
       this.res2 = resX;
       if(resX.status == "exito"){
         alert('Se Elimino el Dispositivo con éxito');
       }
   });
+  }
+  Eliminar_Dispositivo(object: any): void{
+    this.json.postJsonDispositivosEliminar(object).subscribe((resX: any) => {
+      console.log(resX);
+      this.res2 = resX;
+      if(resX.status == "exito"){
+        window.location.reload();
+      }
+  });
+  
   }
 
   goTo(AgrgarDispositivo: NgForm) {
