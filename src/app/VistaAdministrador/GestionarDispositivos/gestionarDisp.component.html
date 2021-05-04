@@ -32,10 +32,12 @@
     </mdb-navbar>
 </header>
 
+<div class="d-flex flex-nowrap"></div>
 <div *ngFor="let item of res1; let i = index" >
     <div class="modal.show() container" tabindex="-1">
       <div class="modal-dialog">
         <div class="modal-content">
+          
           <div class="modal-header">
             <h5 class="modal-title">{{item.nombre}}</h5>
           </div>
@@ -47,13 +49,14 @@
             <p>Precio: ₡{{item.precio}}</p>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-primary" (click) = "Editar_Dipositivo(item)" >Editar </button>
+            <button type="button" class="btn btn-primary" (click) = "frameEditar.show()" >Editar </button>
             <button type="button" class="btn btn-danger" (click) = "Eliminar_Dispositivo(item)"  >Eliminar </button>
           </div>
         </div>
       </div>
     </div>
   </div>
+  
 
   <div mdbModal #frame1="mdbModal" class="modal fade top" id="agregarDispositivoModal" tabindex="-1" role="dialog"
      aria-labelledby="agregarDispositivoLabel" aria-hidden="true">
@@ -181,5 +184,73 @@
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</div>
     
-
+      <div mdbModal #frameEditar="mdbModal" class="modal fade top" id="EditarDispositivoModal" tabindex="-1" role="dialog"
+         aria-labelledby="editarDispositivoLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="m1">
+        <div class="modal-content">
+          <div class="modal-header text-center">
+            <h4 class="modal-title w-100 font-weight-bold">Editar Dispositivos</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="frameEditar.hide()">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+              <div class="modal-body mx-3">
+                <form #EditarDispositivoEditado = "ngForm" (ngSubmit)="goToEditar(EditarDispositivoEditado)">
+    
+                <div class="md-form mb-5">
+                  <mdb-icon fas icon="user" class="prefix white-text"></mdb-icon>
+                  <input type="text" name="nombreEditar" id="InputNombre" class="form-control white-text"
+                        mdbInput required="" ngModel="nombre">
+                  <label for="InputNombreEditar" class="white-text">Nombre</label>
+                </div>
+    
+                <div class="md-form mb-5">
+                  <mdb-icon fas icon="dollar-sign" class="prefix white-text"></mdb-icon>
+                  <input type="text" name="precioEditar" id="InputPrecioEditar" class="form-control white-text"
+                         mdbInput required="" ngModel="precio">
+                  <label for="InputPrecioEditar" class="white-text">Precio</label>
+                </div>
+    
+                <div class="md-form mb-5">
+                  <mdb-icon fas icon="file" class="prefix white-text"></mdb-icon>
+                  <input type="text" name="tipoEditar" id="InputTipoEditar" class="form-control white-text"
+                         mdbInput required="" ngModel="tipo">
+                  <label for="InputTipoEditar" class="white-text">Tipo</label>
+                </div>
+                
+                <div class="md-form mb-5">
+                  <mdb-icon fas icon="barcode" class="prefix white-text"></mdb-icon>
+                  <input type="text" name="numeroSerieEditar" id="InputNumeroSerieEditar" class="form-control white-text"
+                         mdbInput required="" ngModel="numeroSerie">
+                  <label for="InputNumeroSerieEditar" class="white-text">Numero Serie</label>
+                </div>
+    
+                <div class="md-form mb-5">
+                  <mdb-icon fas icon="tags" class="prefix white-text"></mdb-icon>
+                  <input type="text" name="marcaEditar" id="InputMarcaEditar" class="form-control white-text"
+                         mdbInput required="" ngModel="marca">
+                  <label for="InputMarcaEditar" class="white-text">Marca</label>
+                </div>
+    
+                <div class="md-form mb-5">
+                  <mdb-icon fas icon="plug" class="prefix white-text"></mdb-icon>
+                  <input type="text" name="consumoElectricoEditar" id="InputConsumoElectricoEditar" class="form-control white-text"
+                         mdbInput required="" ngModel="consumoElectrico">
+                  <label for="InputConsumoElectricoEditar" class="white-text">Consumo Electrico</label>
+                </div>
+    
+                <div class="row" class = "button">
+                  <button type="submit" class="btn btn-primary" >Enviar Edición</button>
+                  </div>
+      
+                </form>
+              </div>
+          </div>
+        </div>
+        </div>
+      </div>

@@ -18,6 +18,8 @@ import { NgForm } from '@angular/forms';
     
     res4: Array<any> = [];
 
+    res5: Array<any> = [];
+
     constructor(
         private router: Router, public json: JsonService) {
 
@@ -26,14 +28,20 @@ import { NgForm } from '@angular/forms';
           this.res1 = res;
         });
       }
-  Editar_Dipositivo(object: any): void{
-    this.json.postJsonDispositivosEditar(object).subscribe((resX: any) => {
-      console.log(resX);
-      this.res2 = resX;
-      if(resX.status == "exito"){
-        alert('Se Elimino el Dispositivo con éxito');
+    goToEditar(EditarDispositivoEditado: NgForm){
+    if (EditarDispositivoEditado.valid) {
+    this.json.postJsonDispositivosEditar(EditarDispositivoEditado.value).subscribe((resy: any) => {
+      console.log(resy);
+      this.res5 = resy;
+      if(resy.status == "exito"){
+        window.location.reload();
+        alert('Se edito el Dispositivo con éxito');
       }
   });
+    }
+    else{
+      alert('Error en el ingreso de datos');
+    }
   }
   Eliminar_Dispositivo(object: any): void{
     this.json.postJsonDispositivosEliminar(object).subscribe((resX: any) => {
