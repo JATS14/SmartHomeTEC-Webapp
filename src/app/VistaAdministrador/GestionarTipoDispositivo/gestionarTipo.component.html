@@ -22,13 +22,14 @@
                 </li>
                 
             </ul>
+            <button type="button" mdbBtn color="default" data-toggle="modalAgregar" data-target="#agregarTipooModal" 
+            (click)="frameAgregar.show()" mdbWavesEffect>Agregar Tipo</button>
+            <button type="button" mdbBtn color="default" data-toggle="modalBuscar" data-target="#buscarTipoModal"  
+            (click)="frameBuscar.show()" mdbWavesEffect>Buscar Tipo</button>
+
         </links>
     </mdb-navbar>
-    <!-- Main -->
-    
 
-    
-    <!-- /.Main -->
 </header>
 <div *ngFor="let item of res1; let i = index" >
     <div class="modal.show() container" tabindex="-1">
@@ -39,13 +40,117 @@
           </div>
           <div class="modal-body">
             <p>Descripcion: {{item.descripcion}}</p>
-            <p>Garantia en años: {{item.tiempoGrarantia}}</p>
+            <p>Garantia en meses: {{item.tiempoGarantia}}</p>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-primary" (click) = "Editar_Tipo()" >Editar </button>
-            <button type="button" class="btn btn-danger" (click) = "Eliminar_Tipo()"  >Eliminar </button>
+            <button type="button" class="btn btn-danger" (click) = "Eliminar_Tipo(item)"  >Eliminar </button>
           </div>
         </div>
       </div>
     </div>
   </div>
+
+  <div mdbModal #frameAgregar="mdbModal" class="modal fade top" id="agregarTipoModal" tabindex="-1" role="dialog"
+  aria-labelledby="agregarTipo" aria-hidden="true">
+<div class="modal-dialog" role="document">
+ <div class="m1">
+ <div class="modal-content">
+   <div class="modal-header text-center">
+     <h4 class="modal-title w-100 font-weight-bold">Agregar Tipo</h4>
+     <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="frameAgregar.hide()">
+       <span aria-hidden="true">&times;</span>
+     </button>
+   </div>
+       <div class="modal-body mx-3">
+         <form #AgrgarTipo = "ngForm" (ngSubmit)="goTo(AgrgarTipo)">
+
+         <div class="md-form mb-5">
+           <mdb-icon fas icon="user" class="prefix white-text"></mdb-icon>
+           <input type="text" name="Nombre" id="InputNombre" class="form-control white-text"
+               required="" ngModel mdbInput>
+           <label for="InputNombre" class="white-text">Nombre</label>
+         </div>
+
+         <div class="md-form mb-5">
+           <mdb-icon fas icon="font" class="prefix white-text"></mdb-icon>
+           <input type="text" name="descripcion" id="InputDescripcion" class="form-control white-text"
+                  mdbInput required="" ngModel>
+           <label for="InputDescripcion" class="white-text">Descripcion</label>
+         </div>
+
+         <div class="md-form mb-5">
+           <mdb-icon fas icon="award" class="prefix white-text"></mdb-icon>
+           <input type="text" name="tiempoGarantia" id="InputTiempoGarantia" class="form-control white-text"
+                  mdbInput required="" ngModel>
+           <label for="InputTiempoGarantia" class="white-text">Tiempo Garantia(meses)</label>
+         </div>
+
+         <div class="row" class = "button">
+           <button type="submit" class="btn btn-primary" >Enviar</button>
+           </div>
+
+         </form>
+       </div>
+   </div>
+ </div>
+ </div>
+</div>
+
+<div mdbModal #frameBuscar="mdbModal" class="modal fade top" id="buscarDipositivoModal" tabindex="-1" role="dialog"
+aria-labelledby="buscarDipositivoLabel" aria-hidden="true">
+<div class="modal-dialog" role="document">
+<div class="m1">
+<div class="modal-content">
+ <div class="modal-header text-center">
+   <h4 class="modal-title w-100 font-weight-bold">Buscar Tipos</h4>
+   <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="frameBuscar.hide()">
+     <span aria-hidden="true">&times;</span>
+   </button>
+ </div>
+     <div class="modal-body mx-3">
+       <form #BuscarTipo = "ngForm" (ngSubmit)="goToBuscar(BuscarTipo)">
+
+       <div class="md-form mb-5">
+         <mdb-icon fas icon="search" class="prefix white-text"></mdb-icon>
+         <input type="text" name="busquedaEnt" id="InputBusquedaEnt" class="form-control white-text"
+             required="" ngModel mdbInput>
+         <label for="InputBusquedaEnt" class="white-text">Buscar</label>
+       </div>
+     
+       <div class="row" class = "button">
+         <button type="submit" class="btn btn-primary" (click)="frame3.show()" >Buscar</button>
+         </div>
+
+       </form>
+     </div>
+ </div>
+</div>
+</div>
+</div>
+
+<div mdbModal #frame3="mdbModal" class="modal fade top" id="TipoBuscadoModal" tabindex="-1" role="dialog"
+aria-labelledby="TipoBuscadoLabel" aria-hidden="true">
+<div class="modal-dialog" role="document">
+<div class="m1">
+<div class="modal-content">
+ <div class="modal-header text-center">
+   <h4 class="modal-title w-100 font-weight-bold">Tipos Encontrados</h4>
+   <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="frame3.hide()">
+     <span aria-hidden="true">&times;</span>
+   </button>
+ </div>
+
+ <div *ngFor="let item of res3; let i = index" >
+   <div class="container">
+     <div class="col align-self-start">
+           
+           <p> {{item.nombre}}</p>
+           <p>Descripcion: {{item.descripcion}}</p>
+           <p>Garantia(meses): {{item.tiempoGarantia}}</p>
+           <p> --------------------------</p>
+       </div>
+     </div>
+   </div>
+ </div>
+

@@ -52,9 +52,10 @@ import { NgForm } from '@angular/forms';
         console.log(res);
         this.res3 = res;
         
-
+        if(res.status == "agregado"){
+          window.location.reload();
         }
-      );
+      });
       
     }
     else{

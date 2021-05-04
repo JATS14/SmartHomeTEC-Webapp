@@ -23,6 +23,12 @@ export class JsonService{
   /*distribuidores*/
   url8 = 'https://localhost:5001/Distribuidores';
 
+  /*GestionarTipo*/
+  url9 = 'https://localhost:5001/GestionarTipo/agregarTipo';
+  url10 = 'https://localhost:5001/GestionarTipo/editarTipo';
+  url11 = 'https://localhost:5001/GestionarTipo/eliminarTipo';
+  url12 = 'https://localhost:5001/GestionarTipo/buscarTipo';
+
 
   /*header = {headers: {'Access-Control-Allow-Origin': 'http://localhost:4200/', 'Access-Control-Allow-Methods': 'POST', 'Access-Control-Allow-Headers': 'Content-Type, Authorization'}};*/
   httpOptions = {
@@ -69,4 +75,19 @@ export class JsonService{
   getJsonDistribuidores(){
     return this.http.get(this.url8);
   }
+
+   /*GestionarTipo*/
+   postJsonTipoAgregar( obj: any){
+    return this.http.post(this.url9, obj, this.httpOptions);
+  }
+  postJsonTipoEditar( obj: any){
+    return this.http.post(this.url10, obj, this.httpOptions);
+  }
+  postJsonTiposEliminar( obj: any){
+    return this.http.post(this.url11, obj, this.httpOptions);
+  }
+  postJsonTipoBuscar( obj: any){
+    return this.http.post(this.url12, obj, this.httpOptions);
+  }
+
 };
