@@ -1,0 +1,32 @@
+.modal-content{
+    margin-top:80px;
+    margin-left:180px;
+    width: 500px;
+    background:  url("https://st2.depositphotos.com/1605581/8381/i/600/depositphotos_83819542-stock-photo-blue-gradient-background-abstract-illustration.jpg")no-repeat center center;
+    border: rgb(0, 0, 0);
+    color: white; 
+    border-radius: 40px;
+    border-style: solid;
+    padding: 5px;
+    display: flex;
+    align-items: stretch;
+  }
+
+  .m1 .modal-content{
+    margin-top:70px;
+    width: 500px;
+    background: url("https://fondosmil.com/fondo/23179.jpg")no-repeat center center;
+    border: rgb(0, 0, 0);
+    color: white; 
+    border-radius: 40px;
+    border-style: solid;
+    padding: 10px;
+    display: flex;
+    align-items: stretch;
+  }
+
+  .button{
+    padding: 10px;
+    text-align: center;
+    color: white;
+  }

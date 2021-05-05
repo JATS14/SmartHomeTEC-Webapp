@@ -30,6 +30,10 @@ export class PrincipalComponent implements OnInit {
           this.router.navigate([ '/principalVistaAdmin' ])
         }
         if (res.status  == "usuario"){
+          this.json.postJsonUsuarioActual(formLogin.value).subscribe((res: any) => {
+            console.log(res);
+            });
+
           this.router.navigate([ '/principalVistaUsua' ])
         }
       });

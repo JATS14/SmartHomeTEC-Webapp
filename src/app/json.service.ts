@@ -29,6 +29,10 @@ export class JsonService{
   url11 = 'https://localhost:5001/GestionarTipo/eliminarTipo';
   url12 = 'https://localhost:5001/GestionarTipo/buscarTipo';
 
+   /*UsuarioActual*/
+   url13 = 'https://localhost:5001/GetUsuarioActual';
+   url14 = 'https://localhost:5001/PostUsuarioActual/agregarUsuarioActual';
+
 
   /*header = {headers: {'Access-Control-Allow-Origin': 'http://localhost:4200/', 'Access-Control-Allow-Methods': 'POST', 'Access-Control-Allow-Headers': 'Content-Type, Authorization'}};*/
   httpOptions = {
@@ -90,4 +94,12 @@ export class JsonService{
     return this.http.post(this.url12, obj, this.httpOptions);
   }
 
+  /*UsuarioActual*/
+  getJsonUsuarioActual(){
+    return this.http.get(this.url13);
+  }
+
+  postJsonUsuarioActual( obj: any){
+    return this.http.post(this.url14, obj, this.httpOptions);
+  }
 };

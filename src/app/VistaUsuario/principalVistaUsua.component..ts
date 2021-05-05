@@ -12,9 +12,15 @@ import { NgForm } from '@angular/forms';
 
   export class PrincipalVistaUsua{
 
+    res1: Array<any> = [];
+
     constructor(
         private router: Router, public json: JsonService
       ) {
+        this.json.getJsonUsuarioActual().subscribe((res: any) => {
+          console.log(res);
+          this.res1 = res;
+        });
       }
       
   }
