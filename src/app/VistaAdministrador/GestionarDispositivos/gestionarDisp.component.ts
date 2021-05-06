@@ -20,6 +20,11 @@ import { NgForm } from '@angular/forms';
 
     res5: Array<any> = [];
 
+    dispositivoEditando: Array<any> = [];
+    
+    frameEditarAbrir : boolean = false;
+
+    
     constructor(
         private router: Router, public json: JsonService) {
 
@@ -28,12 +33,23 @@ import { NgForm } from '@angular/forms';
           this.res1 = res;
         });
       }
+
+    enviarAEditar(editar: any){
+      this.dispositivoEditando = [editar];
+      this.frameEditarAbrir = true;
+    }
+
+    editarDispositivoClose(estado : boolean){
+      this.frameEditarAbrir = estado;
+    }
+
     goToEditar(EditarDispositivoEditado: NgForm){
     if (EditarDispositivoEditado.valid) {
     this.json.postJsonDispositivosEditar(EditarDispositivoEditado.value).subscribe((resy: any) => {
       console.log(resy);
       this.res5 = resy;
       if(resy.status == "exito"){
+        this.frameEditarAbrir = false;
         window.location.reload();
         alert('Se edito el Dispositivo con éxito');
       }

@@ -49,7 +49,7 @@
             <p>Precio: ₡{{item.precio}}</p>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-primary" (click) = "frameEditar.show()" >Editar </button>
+            <button type="button" class="btn btn-primary" (click) = "enviarAEditar(item)" >Editar </button>
             <button type="button" class="btn btn-danger" (click) = "Eliminar_Dispositivo(item)"  >Eliminar </button>
           </div>
         </div>
@@ -189,58 +189,61 @@
 </div>
     
       <div mdbModal #frameEditar="mdbModal" class="modal fade top" id="EditarDispositivoModal" tabindex="-1" role="dialog"
-         aria-labelledby="editarDispositivoLabel" aria-hidden="true">
+         aria-labelledby="editarDispositivoLabel" aria-hidden="true" [ngStyle]="{'display': frameEditarAbrir ? 'block' : 'none', 'opacity': 1}">
       <div class="modal-dialog" role="document">
-        <div class="m1">
+        <div class="m2">
         <div class="modal-content">
           <div class="modal-header text-center">
             <h4 class="modal-title w-100 font-weight-bold">Editar Dispositivos</h4>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="frameEditar.hide()">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="editarDispositivoClose(false)">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
               <div class="modal-body mx-3">
+
+                <div *ngFor="let item of dispositivoEditando; let i = index" >
+
                 <form #EditarDispositivoEditado = "ngForm" (ngSubmit)="goToEditar(EditarDispositivoEditado)">
     
                 <div class="md-form mb-5">
                   <mdb-icon fas icon="user" class="prefix white-text"></mdb-icon>
                   <input type="text" name="nombreEditar" id="InputNombre" class="form-control white-text"
-                        mdbInput required="" ngModel="nombre">
+                        mdbInput required="" ngModel="{{item.nombre}}">
                   <label for="InputNombreEditar" class="white-text">Nombre</label>
                 </div>
     
                 <div class="md-form mb-5">
                   <mdb-icon fas icon="dollar-sign" class="prefix white-text"></mdb-icon>
                   <input type="text" name="precioEditar" id="InputPrecioEditar" class="form-control white-text"
-                         mdbInput required="" ngModel="precio">
+                         mdbInput required="" ngModel="{{item.precio}}">
                   <label for="InputPrecioEditar" class="white-text">Precio</label>
                 </div>
     
                 <div class="md-form mb-5">
                   <mdb-icon fas icon="file" class="prefix white-text"></mdb-icon>
                   <input type="text" name="tipoEditar" id="InputTipoEditar" class="form-control white-text"
-                         mdbInput required="" ngModel="tipo">
+                         mdbInput required="" ngModel="{{item.tipo.nombre}}">
                   <label for="InputTipoEditar" class="white-text">Tipo</label>
                 </div>
                 
                 <div class="md-form mb-5">
                   <mdb-icon fas icon="barcode" class="prefix white-text"></mdb-icon>
                   <input type="text" name="numeroSerieEditar" id="InputNumeroSerieEditar" class="form-control white-text"
-                         mdbInput required="" ngModel="numeroSerie">
+                         mdbInput required="" ngModel="{{item.numeroSerie}}" >
                   <label for="InputNumeroSerieEditar" class="white-text">Numero Serie</label>
                 </div>
     
                 <div class="md-form mb-5">
                   <mdb-icon fas icon="tags" class="prefix white-text"></mdb-icon>
                   <input type="text" name="marcaEditar" id="InputMarcaEditar" class="form-control white-text"
-                         mdbInput required="" ngModel="marca">
+                         mdbInput required="" ngModel="{{item.marca}}">
                   <label for="InputMarcaEditar" class="white-text">Marca</label>
                 </div>
     
                 <div class="md-form mb-5">
                   <mdb-icon fas icon="plug" class="prefix white-text"></mdb-icon>
                   <input type="text" name="consumoElectricoEditar" id="InputConsumoElectricoEditar" class="form-control white-text"
-                         mdbInput required="" ngModel="consumoElectrico">
+                         mdbInput required="" ngModel="{{item.consumoElectrico}}">
                   <label for="InputConsumoElectricoEditar" class="white-text">Consumo Electrico</label>
                 </div>
     
@@ -249,6 +252,8 @@
                   </div>
       
                 </form>
+
+              </div>
               </div>
           </div>
         </div>

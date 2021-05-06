@@ -13,13 +13,13 @@
   }
 
   .m1 .modal-content{
-    margin-top: 10px;
+    margin-top: -25px;
     margin-left:-120px;
     width: 800px;
     background: url("https://fondosmil.com/fondo/23179.jpg")no-repeat center center;
     border: rgb(0, 0, 0);
     color: white; 
-    border-radius: 40px;
+    border-radius: 20px;
     border-style: solid;
     padding: 1px;
     display: flex;
@@ -27,7 +27,7 @@
   }
 
   .button{
-    padding: 10px;
+    padding: 0px;
     text-align: center;
     color: white;
   }

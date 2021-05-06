@@ -43,7 +43,7 @@
             <p>Garantia en meses: {{item.tiempoGarantia}}</p>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-primary" (click) = "Editar_Tipo()" >Editar </button>
+            <button type="button" class="btn btn-primary" (click) = "enviarAEditar(item)" >Editar </button>
             <button type="button" class="btn btn-danger" (click) = "Eliminar_Tipo(item)"  >Eliminar </button>
           </div>
         </div>
@@ -153,4 +153,61 @@ aria-labelledby="TipoBuscadoLabel" aria-hidden="true">
      </div>
    </div>
  </div>
+</div>
+</div>
+</div>
+
+ <div mdbModal #frameEditar="mdbModal" class="modal fade top" id="EditarTipoModal" tabindex="-1" role="dialog"
+ aria-labelledby="editarTipoLabel" aria-hidden="true" [ngStyle]="{'display': frameEditarTipo ? 'block' : 'none', 'opacity': 1}">
+<div class="modal-dialog" role="document">
+<div class="m2">
+<div class="modal-content">
+  <div class="modal-header text-center">
+    <h4 class="modal-title w-100 font-weight-bold">Editar Tipo</h4>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="editarTipoClose(false)">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+      <div class="modal-body mx-3">
+
+        <div *ngFor="let item of TipoEditando; let i = index" >
+
+        <form #EditarTipoEditado = "ngForm" (ngSubmit)="goToEditar(EditarTipoEditado)">
+
+        <div class="md-form mb-5">
+          <mdb-icon fas icon="user" class="prefix white-text"></mdb-icon>
+          <input type="text" name="nombre" id="InputNombre" class="form-control white-text"
+                mdbInput required="" ngModel="{{item.nombre}}">
+          <label for="InputNombreEditar" class="white-text">Nombre</label>
+        </div>
+
+        <div class="md-form mb-5">
+          <mdb-icon fas icon="dollar-sign" class="prefix white-text"></mdb-icon>
+          <input type="text" name="descripcion" id="InputdescripcionEditar" class="form-control white-text"
+                 mdbInput required="" ngModel="{{item.descripcion}}">
+          <label for="InputdescripcionEditar" class="white-text">Descripción</label>
+        </div>
+
+        <div class="md-form mb-5">
+          <mdb-icon fas icon="file" class="prefix white-text"></mdb-icon>
+          <input type="text" name="tiempoGarantia" id="InputtiempoGarantiaEditar" class="form-control white-text"
+                 mdbInput required="" ngModel="{{item.tiempoGarantia}}">
+          <label for="InputtiempoGarantiaEditar" class="white-text">Tiempo Garantía</label>
+        </div>
+
+
+        <div class="row" class = "button">
+          <button type="submit" class="btn btn-primary" >Enviar Edición</button>
+          </div>
+
+        </form>
+
+      </div>
+      </div>
+  </div>
+</div>
+</div>
+</div>
+
+
 

@@ -15,6 +15,11 @@ import { NgForm } from '@angular/forms';
     res2: Array<any> = [];
     res3: Array<any> = [];
     res4: Array<any> = [];
+
+    TipoEditando: Array<any> = [];
+    
+    frameEditarTipo : boolean = false;
+
     constructor(
         private router: Router, public json: JsonService
       ) {
@@ -23,9 +28,34 @@ import { NgForm } from '@angular/forms';
         this.res1 = res;
       });
       }
-      Editar_Tipo(): void{
-        alert('Se actualizaron los datos con éxito');
+
+      enviarAEditar(editar: any){
+        this.TipoEditando = [editar];
+        this.frameEditarTipo = true;
       }
+
+      editarTipoClose(estado : boolean){
+        this.frameEditarTipo = estado;
+      }
+
+      goToEditar(EditarTipoEditado: NgForm){
+        if (EditarTipoEditado.valid) {
+          this.json.postJsonTipoEditar(EditarTipoEditado.value).subscribe((resy: any) => {
+            console.log(resy);
+            if(resy.status == "exito"){
+              this.frameEditarTipo = false;
+              window.location.reload();
+              alert('Se edito el Tipo con éxito');
+            }
+        });
+
+        }
+        else{
+          alert('Error en el ingreso de datos');
+        }
+      }
+  
+
       Eliminar_Tipo(object: any): void{
         this.json.postJsonTiposEliminar(object).subscribe((resX: any) => {
           console.log(resX);

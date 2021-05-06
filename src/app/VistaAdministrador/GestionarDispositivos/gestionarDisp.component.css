@@ -25,6 +25,20 @@
     align-items: stretch;
   }
 
+  .m2 .modal-content{
+    margin-top:260px;
+    margin-left:-150px;
+    width: 800px;
+    background: url("https://fondosmil.com/fondo/23179.jpg")no-repeat center center;
+    border: rgb(0, 0, 0);
+    color: white; 
+    border-radius: 40px;
+    border-style: solid;
+    padding: 10px;
+    display: flex;
+    align-items: stretch;
+  }
+
   .button{
     padding: 10px;
     text-align: center;
