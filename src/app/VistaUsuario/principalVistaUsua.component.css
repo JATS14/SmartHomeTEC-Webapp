@@ -1,12 +1,13 @@
 .modal-content{
-    margin-top:70px;
-    width: 500px;
-    background:  url("https://st2.depositphotos.com/1605581/8381/i/600/depositphotos_83819542-stock-photo-blue-gradient-background-abstract-illustration.jpg")no-repeat center center;
+    margin-top:120px;
+    margin-left: -120px;
+    width: 800px;
+    background:  url("https://elbatallonpluto.com/wp-content/uploads/2016/07/azul-degradados-azules-organizados-por-temas-125663-1.jpg")no-repeat center center;
     border: rgb(0, 0, 0);
     color: white; 
     border-radius: 40px;
     border-style: solid;
-    padding: 10px;
+    padding: 20px;
     display: flex;
     align-items: stretch;
 
@@ -14,7 +15,8 @@
 
   .m1 .modal-content{
     margin-top:70px;
-    width: 500px;
+    margin-left: -60px;
+    width: 700px;
     background: url("https://fondosmil.com/fondo/23179.jpg")no-repeat center center;
     border: rgb(0, 0, 0);
     color: white; 

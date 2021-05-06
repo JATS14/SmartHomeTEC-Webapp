@@ -22,5 +22,20 @@ import { NgForm } from '@angular/forms';
           this.res1 = res;
         });
       }
+
+      goToEditarPerfil(EditarPerfil: NgForm){
+        if (EditarPerfil.valid) {
+          this.json.postJsonEditarPerfil(EditarPerfil.value).subscribe((resy: any) => {
+            console.log(resy);
+            if(resy.status == "exito"){
+              window.location.reload();
+            }
+          });
+        }else{
+          alert("Es necesario llenar todos los espacios");
+        }
+
+
+      }
       
   }

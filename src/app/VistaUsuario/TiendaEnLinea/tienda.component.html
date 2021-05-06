@@ -38,10 +38,99 @@
             <p>Precio: ₡{{item.precio}}</p>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-success" >Comprar </button>
+            <button type="button" class="btn btn-success" (click) = "frameComprar.show()">Comprar </button>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+<div mdbModal #frameComprar="mdbModal" class="modal fade top" id="ComprarDispositivoModal" tabindex="-1" role="dialog"
+     aria-labelledby="ComprarDispositivoLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="m1">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Comprar Dispositivos</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="frameComprar.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+          <div class="modal-body mx-4">
+            <form #ComprarDispositivo = "ngForm" (ngSubmit)="goToComprar(ComprarDispositivo)">
+
+            <h4 class="modal-title w-10 font-weight-bold">Información Tarjeta</h4>
+
+            <select class="browser-default custom-select">
+              <option selected>Método de Pago</option>
+              <option value="1">Visa</option>
+              <option value="2">Mastercard</option>
+            </select>
+
+            <div class="md-form mb-5">
+              <mdb-icon fas icon="credit-card" class="prefix white-text"></mdb-icon>
+              <input type="text" name="NumeroTarjeta" id="InputNumeroTarjeta" class="form-control white-text"
+                  required="" ngModel mdbInput>
+              <label for="InputNumeroTarjeta" class="white-text">Numero Tarjeta</label>
+            </div>
+
+            <div class="md-form mb-5">
+              <mdb-icon fas icon="lock" class="prefix white-text"></mdb-icon>
+              <input type="text" name="CodigoSeguridad" id="InputCodigoSeguridad" class="form-control white-text"
+                     mdbInput required="" ngModel>
+              <label for="InputCodigoSeguridad" class="white-text">Código Seguridad</label>
+            </div>
+
+            <h4 class="modal-title w-10 font-weight-bold">Información Faturación</h4>
+
+            
+                <div class="md-form mb-5">
+                  <mdb-icon fas icon="user-circle" class="prefix white-text"></mdb-icon>
+                  <input type="text" name="nombre" id="InputNombre" class="form-control white-text"
+                     mdbInput required="" ngModel>
+                  <label for="InputNombre" class="white-text">Nombre</label>
+                </div>
+              
+              
+                <div class="md-form mb-5">
+                  <mdb-icon fas icon="user" class="prefix white-text"></mdb-icon>
+                  <input type="text" name="apellido" id="InputApellido" class="form-control white-text"
+                     mdbInput required="" ngModel>
+                  <label for="InputApellido" class="white-text">Apellido</label>
+                </div>
+              
+
+
+              <div class="md-form mb-5">
+                <mdb-icon fas icon="map-marker-alt" class="prefix white-text"></mdb-icon>
+                <input type="text" name="direccionfacturacion" id="InputDireccionFacturacion" class="form-control white-text"
+                   mdbInput required="" ngModel>
+                <label for="InputDireccionFacturacion" class="white-text">Dirección Facturación</label>
+                </div>
+              <div class="md-form mb-5">
+                <mdb-icon fas icon="globe" class="prefix white-text"></mdb-icon>
+                <input type="text" name="codigoPostal" id="InputCodigoPostal" class="form-control white-text"
+                   mdbInput required="" ngModel>
+                <label for="InputCodigoPostal" class="white-text">Código Postal</label>
+              </div> 
+            
+              <div class="md-form mb-5">
+                <mdb-icon fas icon="mobile" class="prefix white-text"></mdb-icon>
+                <input type="text" name="celular" id="InputCelular" class="form-control white-text"
+                   mdbInput required="" ngModel>
+                <label for="InputCelular" class="white-text">Número Celular</label>
+              </div> 
+          
+
+            <div class="row" class = "button">
+              <button type="submit" class="btn btn-success" >Comprar</button>
+              </div>
+  
+            </form>
+            
+          </div>
+      </div>
+    </div>
+    </div>
+  </div>

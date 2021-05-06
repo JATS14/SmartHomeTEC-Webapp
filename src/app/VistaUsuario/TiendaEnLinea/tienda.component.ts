@@ -12,6 +12,8 @@ import { NgForm } from '@angular/forms';
 
   export class Tienda{
     res1: Array<any> = [];
+
+
     constructor(
         private router: Router, public json: JsonService
       ) {
@@ -21,4 +23,13 @@ import { NgForm } from '@angular/forms';
         });
       }
       
+      goToComprar(compra: NgForm){
+        if (compra.valid) {
+              alert('Se compro un dispositivo');
+            }
+        else{
+          alert('Es necesario rellenar todos los espacios');
+        }
+      }
+
   }

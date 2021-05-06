@@ -27,18 +27,101 @@
          <div class="modal-content">
            
            <div class="modal-header">
-             <h5 class="modal-title">{{item.nombre}} {{item.apellido}}</h5>
+            
+             <h5 class="modal-title"> <mdb-icon fas icon="user-circle" class="prefix white-text fa-lg"></mdb-icon> {{item.nombre}} {{item.apellido}}</h5>
            </div>
            <div class="modal-body">
-            <p>Correo: {{item.correo}}</p>
-             <p>Pais: {{item.pais}}</p>
-             <p>Region: {{item.region}}</p>
-             <p>Direccion: {{item.direccion}}</p>
+
+            <p> <mdb-icon fas icon="at" class="prefix white-text fa-lg" ></mdb-icon> Correo: {{item.correo}}</p>
+             <p><mdb-icon fas icon="flag" class="prefix white-text fa-lg"></mdb-icon> Pais: {{item.pais}}</p>
+             <p><mdb-icon fas icon="globe" class="prefix white-text fa-lg"></mdb-icon> Region: {{item.region}}</p>
+             <p> <mdb-icon fas icon="map-marked-alt" class="prefix white-text fa-lg"></mdb-icon> Direccion: {{item.direccion}}</p>
            </div>
            <div class="modal-footer">
-             <button type="button" class="btn btn-primary" >Editar </button>
+             <button type="button" class="btn btn-primary" (click) = "frameEditarPerfil.show()" >Editar </button>
            </div>
          </div>
        </div>
      </div>
    </div>
+
+
+
+   <div mdbModal #frameEditarPerfil="mdbModal" class="modal fade top" id="agregarDispositivoModal" tabindex="-1" role="dialog"
+     aria-labelledby="agregarDispositivoLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="m1">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Agregar Dispositivos</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="frameEditarPerfil.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+          <div class="modal-body mx-3">
+
+            <div *ngFor="let item of res1; let i = index" >
+
+            <form #EditarPerfil = "ngForm" (ngSubmit)="goToEditarPerfil(EditarPerfil)">
+
+            <div class="md-form mb-5">
+              <mdb-icon fas icon="user-circle" class="prefix white-text"></mdb-icon>
+              <input type="text" name="nombre" id="InputNombre" class="form-control white-text"
+                  required="" ngModel="{{item.nombre}}" mdbInput>
+              <label for="InputNombre" class="white-text">Nombre</label>
+            </div>
+
+            <div class="md-form mb-5">
+              <mdb-icon fas icon="user" class="prefix white-text"></mdb-icon>
+              <input type="text" name="apellido" id="InputApellido" class="form-control white-text"
+                 mdbInput required="" ngModel="{{item.apellido}}">
+              <label for="InputApellido" class="white-text">Apellido</label>
+            </div>
+
+            <div class="md-form mb-5">
+              <mdb-icon fas icon="flag" class="prefix white-text"></mdb-icon>
+              <input type="text" name="pais" id="InputPais" class="form-control white-text"
+                 mdbInput required="" ngModel="{{item.pais}}">
+              <label for="InputPais" class="white-text">País</label>
+            </div> 
+
+            <div class="md-form mb-5">
+              <mdb-icon fas icon="globe" class="prefix white-text"></mdb-icon>
+              <input type="text" name="region" id="InputRegion" class="form-control white-text"
+                 mdbInput required="" ngModel="{{item.region}}">
+              <label for="InputRegion" class="white-text">Región</label>
+            </div> 
+
+            <div class="md-form mb-5">
+              <mdb-icon fas icon="at" class="prefix white-text"></mdb-icon>
+              <input type="text" name="correo" id="InputCorreo" class="form-control white-text"
+                     mdbInput required="" ngModel="{{item.correo}}">
+              <label for="InputCorreo" class="white-text">Correo</label>
+            </div>
+
+            <div class="md-form mb-5">
+              <mdb-icon fas icon="key" class="prefix white-text"></mdb-icon>
+              <input type="text" name="contrasena" id="InputContrasena" class="form-control white-text"
+                  mdbInput required="" ngModel="{{item.contrasena}}">
+              <label for="InputContrasena" class="white-text">Constraseña</label>
+            </div>
+
+            <div class="md-form mb-5">
+              <mdb-icon fas icon="map-marked-alt" class="prefix white-text"></mdb-icon>
+              <input type="text" name="direccion" id="InputDireccion" class="form-control white-text"
+                 mdbInput required="" ngModel="{{item.direccion}}">
+              <label for="InputDireccion" class="white-text">Dirección</label>
+              </div>
+            
+
+            <div class="row" class = "button">
+              <button type="submit" class="btn btn-primary" >Editar</button>
+              </div>
+  
+            </form>
+          </div>
+          </div>
+      </div>
+    </div>
+    </div>
+  </div>

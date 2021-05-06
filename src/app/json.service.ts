@@ -33,6 +33,9 @@ export class JsonService{
    url13 = 'https://localhost:5001/GetUsuarioActual';
    url14 = 'https://localhost:5001/PostUsuarioActual/agregarUsuarioActual';
 
+   /*Perfil*/
+   url15 = 'https://localhost:5001/Usuario/EditarPerfil';
+
 
   /*header = {headers: {'Access-Control-Allow-Origin': 'http://localhost:4200/', 'Access-Control-Allow-Methods': 'POST', 'Access-Control-Allow-Headers': 'Content-Type, Authorization'}};*/
   httpOptions = {
@@ -102,4 +105,10 @@ export class JsonService{
   postJsonUsuarioActual( obj: any){
     return this.http.post(this.url14, obj, this.httpOptions);
   }
+
+  /*Perfil*/
+  postJsonEditarPerfil( obj: any){
+  return this.http.post(this.url15, obj, this.httpOptions);
+  }
+
 };
