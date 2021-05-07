@@ -36,6 +36,11 @@ export class JsonService{
    /*Perfil*/
    url15 = 'https://localhost:5001/Usuario/EditarPerfil';
 
+  /*DashBoard*/
+   url16 = 'https://localhost:5001/DashBoard/DatosDeGraficas';
+   url17 = 'https://localhost:5001/DashBoard/ListaDispositivosUsuario';
+   url18 = 'https://localhost:5001/DashBoard/ListaDispositivosSinUsuario';
+
 
   /*header = {headers: {'Access-Control-Allow-Origin': 'http://localhost:4200/', 'Access-Control-Allow-Methods': 'POST', 'Access-Control-Allow-Headers': 'Content-Type, Authorization'}};*/
   httpOptions = {
@@ -110,5 +115,19 @@ export class JsonService{
   postJsonEditarPerfil( obj: any){
   return this.http.post(this.url15, obj, this.httpOptions);
   }
+
+  /*DashBoard*/
+  getJsonDashBoard(){
+    return this.http.get(this.url16);
+  }
+
+  getJsonDispUsuario(){
+    return this.http.get(this.url17);
+  }
+
+  getJsonDispSinUsuario(){
+    return this.http.get(this.url18);
+  }
+
 
 };

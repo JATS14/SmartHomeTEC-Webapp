@@ -24,11 +24,134 @@
             </ul>
         </links>
     </mdb-navbar>
-    <!-- Main -->
-     
-    <!-- /.Main -->
  </header> 
-  <!--Main Layout-->
-  <main class="text-center py-5">
 
-  </main>
+
+    <div class="modal.show() container" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="m1">
+                <div class="modal-content">
+                     <div class="modal-header">
+                         <h5 class="modal-title"> Cantidad promedio de dispositivos por usuarios</h5>
+                     </div>
+                        <div class="modal-body text-center">
+                            <p> <mdb-icon fas icon="calculator" class="prefix black-text fa-lg" ></mdb-icon>
+                                {{objeto1.promDispUsuario}}
+                            </p>
+                        </div>
+                    <div class="modal-footer">
+                             Cantidad promedio de dispositivos
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>
+    <div class="modal.show() container" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="m1">
+                <div class="modal-content">
+                     <div class="modal-header">
+                        <h5 class="modal-title"> Cantidad total de dispositivos gestionados por el sistema</h5>
+                    </div>   
+                    <div class="modal-body">
+                        <div class="progress">
+                             <div class="progress-bar progress-bar-striped progress-bar-animated bg-info" role="progressbar"
+                                    aria-valuenow="objeto1.cantDispAsociados" aria-valuemin="0" aria-valuemax="objeto1.totalDispocitivos" 
+                                    style="width: {{objeto1.cantDispAsociados}}%">{{objeto1.cantDispAsociados}}%</div>
+                         </div>
+                        </div>
+                    <div class="modal-footer">
+                        Cantidad total de dispositivos
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+ 
+
+ <div class="modal.show() container" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+            <div style="display: block">
+                <canvas mdbChart
+                    [chartType]="chartType"
+                    [datasets]="[{data: [ objeto1.dispAmerica , objeto1.dispEuropa , objeto1.dispAsia , objeto1.dispAfrica , objeto1.dispOceania ], label: 'Region'}]"
+                    [labels]="chartLabels"
+                    [colors]="chartColors"
+                    [options]="chartOptions"
+                    [legend]="true"
+                    (chartHover)="chartHovered($event)"
+                    (chartClick)="chartClicked($event)">
+                </canvas>
+            </div>
+        </div>
+    </div>
+</div>
+ 
+<div class="modal.show() container" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="m1">
+            <div class="modal-content">
+                     <h5 class="modal-title"> Dispositivos que han sido registrados por un Usuario</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<div class="d-flex flex-wrap">
+<div *ngFor="let item of res1; let i = index" >
+    <div class="modal.show() container" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="m2">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">{{item.nombre}}</h5>
+          </div>
+          <div class="modal-body">
+            <p>Tipo: {{item.tipo.nombre}}</p>
+            <p>Marca: {{item.marca}}</p>
+            <p>Consumo Electrico: {{item.consumoElectrico}}</p>
+            <p>#serie: {{item.numeroSerie}}</p>
+            <p>Precio: ₡{{item.precio}}</p>
+          </div>
+        </div>
+    </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal.show() container" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="m1">
+            <div class="modal-content">
+                     <h5 class="modal-title"> Dispositivos que aun no han sido registrados por un Usuario</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div class="d-flex flex-wrap">
+  <div *ngFor="let item of res2; let i = index" >
+    <div class="modal.show() container" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="m2">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">{{item.nombre}}</h5>
+          </div>
+          <div class="modal-body">
+            <p>Tipo: {{item.tipo.nombre}}</p>
+            <p>Marca: {{item.marca}}</p>
+            <p>Consumo Electrico: {{item.consumoElectrico}}</p>
+            <p>#serie: {{item.numeroSerie}}</p>
+            <p>Precio: ₡{{item.precio}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
