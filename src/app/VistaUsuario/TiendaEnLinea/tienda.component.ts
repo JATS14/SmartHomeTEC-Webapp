@@ -13,6 +13,11 @@ import { NgForm } from '@angular/forms';
   export class Tienda{
     res1: Array<any> = [];
 
+    frameComprar : boolean = false;
+    dispositivoComprado: Array<any> = [];
+    
+    dispCom : any;
+
 
     constructor(
         private router: Router, public json: JsonService
@@ -22,10 +27,30 @@ import { NgForm } from '@angular/forms';
           this.res1 = res;
         });
       }
+
+      enviaraComprar(Comprar: any){
+        this.dispositivoComprado = [Comprar];
+        this.dispCom = Comprar;
+        this.frameComprar = true;
+      }
+  
+      ComprarDispositivoClose(estado : boolean){
+        this.frameComprar = estado;
+      }
       
       goToComprar(compra: NgForm){
         if (compra.valid) {
-              alert('Se compro un dispositivo');
+          this.json.postJsonComparDispositivo(this.dispCom).subscribe((resy: any) => {
+            console.log(resy);});
+
+          this.json.postJsonDatosFactura(compra.value).subscribe((resy: any) => {
+            console.log(resy);
+            if(resy.status == "exito"){
+              this.frameComprar = false;
+              window.location.reload();
+              alert('Se compro un dispositivo con exito');
+            }
+        });
             }
         else{
           alert('Es necesario rellenar todos los espacios');

@@ -38,7 +38,7 @@
             <p>Precio: ₡{{item.precio}}</p>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-success" (click) = "frameComprar.show()">Comprar </button>
+            <button type="button" class="btn btn-success" (click) = "enviaraComprar(item)">Comprar </button>
           </div>
         </div>
       </div>
@@ -46,14 +46,14 @@
   </div>
 </div>
 
-<div mdbModal #frameComprar="mdbModal" class="modal fade top" id="ComprarDispositivoModal" tabindex="-1" role="dialog"
-     aria-labelledby="ComprarDispositivoLabel" aria-hidden="true">
+<div mdbModal #frameComprarModal="mdbModal" class="modal fade top" id="ComprarDispositivoModal" tabindex="-1" role="dialog"
+     aria-labelledby="ComprarDispositivoLabel" aria-hidden="true" [ngStyle]="{'display': frameComprar ? 'block' : 'none', 'opacity': 1}">
   <div class="modal-dialog" role="document">
-    <div class="m1">
+    <div class="m2">
     <div class="modal-content">
       <div class="modal-header text-center">
         <h4 class="modal-title w-100 font-weight-bold">Comprar Dispositivos</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="frameComprar.hide()">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="ComprarDispositivoClose(false)">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -70,14 +70,14 @@
 
             <div class="md-form mb-5">
               <mdb-icon fas icon="credit-card" class="prefix white-text"></mdb-icon>
-              <input type="text" name="NumeroTarjeta" id="InputNumeroTarjeta" class="form-control white-text"
+              <input type="text" name="numeroTarjeta" id="InputNumeroTarjeta" class="form-control white-text"
                   required="" ngModel mdbInput>
               <label for="InputNumeroTarjeta" class="white-text">Numero Tarjeta</label>
             </div>
 
             <div class="md-form mb-5">
               <mdb-icon fas icon="lock" class="prefix white-text"></mdb-icon>
-              <input type="text" name="CodigoSeguridad" id="InputCodigoSeguridad" class="form-control white-text"
+              <input type="text" name="codigoSeguridad" id="InputCodigoSeguridad" class="form-control white-text"
                      mdbInput required="" ngModel>
               <label for="InputCodigoSeguridad" class="white-text">Código Seguridad</label>
             </div>

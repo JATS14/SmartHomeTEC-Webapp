@@ -36,10 +36,15 @@ export class JsonService{
    /*Perfil*/
    url15 = 'https://localhost:5001/Usuario/EditarPerfil';
 
+
   /*DashBoard*/
    url16 = 'https://localhost:5001/DashBoard/DatosDeGraficas';
    url17 = 'https://localhost:5001/DashBoard/ListaDispositivosUsuario';
    url18 = 'https://localhost:5001/DashBoard/ListaDispositivosSinUsuario';
+
+   /*Factura*/
+   url19 = 'https://localhost:5001/Usuario/ComparDispositivo';
+   url20 = 'https://localhost:5001/Usuario/DatosDactura';
 
 
   /*header = {headers: {'Access-Control-Allow-Origin': 'http://localhost:4200/', 'Access-Control-Allow-Methods': 'POST', 'Access-Control-Allow-Headers': 'Content-Type, Authorization'}};*/
@@ -129,5 +134,13 @@ export class JsonService{
     return this.http.get(this.url18);
   }
 
+  /*Factura*/
+  postJsonComparDispositivo( obj: any){
+    return this.http.post(this.url19, obj, this.httpOptions);
+  }
+
+  postJsonDatosFactura( obj: any){
+    return this.http.post(this.url20, obj, this.httpOptions);
+  }
 
 };
