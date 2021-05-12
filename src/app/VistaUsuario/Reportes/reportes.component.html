@@ -18,11 +18,81 @@
             </ul>
         </links>
     </mdb-navbar>
-    <!-- Main -->
-     
-    <!-- /.Main -->
  </header> 
-  <!--Main Layout-->
-  <main class="text-center py-5">
+ 
+ <div class="modal.show() container" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="m1">
+            <div class="modal-content">
+                 <div class="modal-header">
+                     <h5 class="modal-title"> Consumo Mensual Total</h5>
+                 </div>
+                    <div class="modal-body text-center">
+                        <p> <mdb-icon fas icon="battery-three-quarters" class="prefix black-text fa-lg" ></mdb-icon>
+                            {{reporteDatos.consumoMensual}} W
+                        </p>
+                    </div>
+                <div class="modal-footer">
+                             Consumo Mensual
+                </div>
+            </div>
+    </div>
+</div>
+</div>
 
-  </main>
+<div class="modal.show() container" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="m1">
+            <div class="modal-content">
+                 <div class="modal-header">
+                    <h5 class="modal-title"> Horas de Mayor Uso de Dispositivos</h5>
+                </div>   
+                <div class="modal-body">
+                    <div class="progress">
+                        <div class="progress-bar bg-info" role="progressbar"
+                                aria-valuenow="HoraInicio" aria-valuemin="0" aria-valuemax="100" 
+                                style="width: {{HoraInicio}}%"></div>
+
+                         <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" role="progressbar"
+                                aria-valuenow="HoraFinal" aria-valuemin="0" aria-valuemax="100" 
+                                style="width: {{HoraFinal}}%"> De las {{reporteDatos.inicioHoraMasUso}}:00  a {{reporteDatos.finalHoraMasUso}}:00 H</div>
+                        
+                        <div class="progress-bar bg-info" role="progressbar"
+                            aria-valuenow="RestoHoras" aria-valuemin="0" aria-valuemax="100" 
+                            style="width: {{RestoHoras}}%"> </div>
+
+                     </div>
+                    </div>
+                <div class="modal-footer">
+                    Cantidad total de dispositivos
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+<div class="modal.show() container" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="m1">
+            <div class="modal-content">
+                 <div class="modal-header">
+                     <h5 class="modal-title">  Tipo de dispositivo de mayor uso:</h5>
+                 </div>
+                    <div class="modal-body text-center">
+                        <p> <mdb-icon fas icon="sticky-note" class="prefix black-text fa-lg" ></mdb-icon>
+                            {{reporteDatos.tipoDeMayorUso1}} 
+                        </p>
+                    </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

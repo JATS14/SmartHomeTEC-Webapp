@@ -41,6 +41,7 @@ export class JsonService{
    url16 = 'https://localhost:5001/DashBoard/DatosDeGraficas';
    url17 = 'https://localhost:5001/DashBoard/ListaDispositivosUsuario';
    url18 = 'https://localhost:5001/DashBoard/ListaDispositivosSinUsuario';
+   url21 = 'https://localhost:5001/DashBoard/ReportesUsuario';
 
    /*Factura*/
    url19 = 'https://localhost:5001/Usuario/ComparDispositivo';
@@ -132,6 +133,10 @@ export class JsonService{
 
   getJsonDispSinUsuario(){
     return this.http.get(this.url18);
+  }
+
+  getJsonReportesUsuario(){
+    return this.http.get(this.url21);
   }
 
   /*Factura*/

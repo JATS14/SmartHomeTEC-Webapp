@@ -12,9 +12,25 @@ import { NgForm } from '@angular/forms';
 
   export class Reportes{
 
+    reporteDatos: any;
+
+    HoraInicio: any;
+    HoraFinal: any;
+    RestoHoras: any;
+
     constructor(
         private router: Router, public json: JsonService
       ) {
+        this.json.getJsonReportesUsuario().subscribe((resi: any) => {
+          console.log(resi);
+          this.reporteDatos = resi;
+
+          this.HoraInicio = ((resi.inicioHoraMasUso*100)/24);
+          this.HoraFinal = ((resi.finalHoraMasUso*100)/24);
+          this.RestoHoras = 100 - this.HoraFinal;
+        });
       }
+
+
       
   }
