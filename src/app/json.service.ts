@@ -47,6 +47,8 @@ export class JsonService{
    url19 = 'https://localhost:5001/Usuario/ComparDispositivo';
    url20 = 'https://localhost:5001/Usuario/DatosDactura';
 
+   /* Subir Excel */
+   url22 = 'https://localhost:5001/excelDispositivos/subirExcelDispositivos';
 
   /*header = {headers: {'Access-Control-Allow-Origin': 'http://localhost:4200/', 'Access-Control-Allow-Methods': 'POST', 'Access-Control-Allow-Headers': 'Content-Type, Authorization'}};*/
   httpOptions = {
@@ -146,6 +148,16 @@ export class JsonService{
 
   postJsonDatosFactura( obj: any){
     return this.http.post(this.url20, obj, this.httpOptions);
+  }
+
+  /* Subir Excel */
+  postJsonSubirExcel(fileToUpload: File){
+    const formData: FormData = new FormData();
+    formData.append('File', fileToUpload);
+    return this.http.post(this.url22,formData,{
+      reportProgress: true,
+    });
+    
   }
 
 };
